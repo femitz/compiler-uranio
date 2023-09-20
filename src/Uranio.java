@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Uranio {
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Usage: java uranio <input_file.ura>");
+            System.out.println("Usage: java Uranio <input_file.ura>");
             System.exit(1);
         }
         String fileName = args[0];
