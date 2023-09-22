@@ -1,1 +1,10 @@
-return 69;
+int x =  30;
+
+string teste = "teste";
+float floatTest = 20.20;
+
+if ( x < 29 ) {
+    return true;
+} else {
+    return false;
+}
