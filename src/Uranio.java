@@ -1,3 +1,5 @@
+
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,14 +10,15 @@ import java.util.regex.Pattern;
 
 public class Uranio {
     public static void main(String[] args) {
-        if (args.length != 1) {
-            System.out.println("Usage: java Uranio <input_file.ura>");
-            System.exit(1);
-        }
-        String fileName = args[0];
+        // if (args.length != 1) {
+        //     System.out.println("Usage: java Uranio <input_file.ura>");
+        //     System.exit(1);
+        // }
+        String[] fileName = {"test", "testeSoma"};
+
         try {
             // Lê o arquivo de código-fonte
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
+            BufferedReader br = new BufferedReader(new FileReader("src/testes/"+fileName[0]+".ura"));
             String line;
 
             // Loop para ler cada linha do arquivo
