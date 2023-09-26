@@ -5,6 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
+import Lexico.Lexico;
+import Sintatico.Sintatico;
+
 public class Main {
   public static void main(String[] args) throws FileNotFoundException, IOException{
     System.out.println("\n\n");

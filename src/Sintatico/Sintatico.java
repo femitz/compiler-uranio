@@ -1,3 +1,5 @@
+package Sintatico;
+
 import java.util.ArrayList;
 import java.util.List;
 
