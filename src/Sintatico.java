@@ -82,7 +82,7 @@ public class Sintatico {
         // tokens.add("5");
         // tokens.add(")");
 
-        String scan = "int x =  30;";
+        String scan = "1+2+3-4/5*6+(4+5)";
         for (int i = 0; i < scan.length(); i++){
             char c = scan.charAt(i);
             tokens.add(Character.toString(c));
