@@ -82,12 +82,24 @@ public class Sintatico {
         // tokens.add("5");
         // tokens.add(")");
 
-        String scan = "2+3*4+5)/5";
+        String scan = "int x =  30;";
         for (int i = 0; i < scan.length(); i++){
             char c = scan.charAt(i);
             tokens.add(Character.toString(c));
         }
         
+
+        AnalisadorSintatico analisador = new AnalisadorSintatico(tokens);
+        analisador.analisar();
+    }
+
+    public void runSintatico(String line){
+        List<String> tokens = new ArrayList<>();
+        String scan = line;
+        for (int i = 0; i < scan.length(); i++){
+            char c = scan.charAt(i);
+            tokens.add(Character.toString(c));
+        }
 
         AnalisadorSintatico analisador = new AnalisadorSintatico(tokens);
         analisador.analisar();

@@ -1,8 +1,5 @@
-
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -60,7 +57,7 @@ public class Lexico {
                     }
                 }
             }
-            br.close();
+            //br.close();
             System.out.println("\nTabela de Símbolos:");
             for (Map.Entry<String, String> entry : symbolTable.entrySet()) {
                 System.out.println("Identificador: " + entry.getKey() + ", Tipo: " + entry.getValue());
