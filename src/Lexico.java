@@ -1,21 +1,22 @@
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Uranio {
-    public static void main(String[] args) {
-        if (args.length != 1) {
-            System.out.println("Usage: java Uranio <input_file.ura>");
-            System.exit(1);
-        }
-        String fileName = args[0];
+public class Lexico {
+    public static void main(String[] args) throws FileNotFoundException {
+        // String[] fileName = {"test", "testeSoma"};
+        // BufferedReader br = new BufferedReader(new FileReader("src/testes/"+fileName[0]+".ura"));
+
+        // runLexico(br);
+    }
+
+    public void runLexico(BufferedReader br){
         try {
             // Lê o arquivo de código-fonte
-            BufferedReader br = new BufferedReader(new FileReader(fileName));
             String line;
 
             // Loop para ler cada linha do arquivo
@@ -56,7 +57,7 @@ public class Uranio {
                     }
                 }
             }
-            br.close();
+            //br.close();
             System.out.println("\nTabela de Símbolos:");
             for (Map.Entry<String, String> entry : symbolTable.entrySet()) {
                 System.out.println("Identificador: " + entry.getKey() + ", Tipo: " + entry.getValue());
@@ -65,6 +66,7 @@ public class Uranio {
             e.printStackTrace();
         }
     }
+
 
     // Definição de mapas para palavras reservadas e tabela de símbolos
     private static final Map<String, TokenType> keywords;
