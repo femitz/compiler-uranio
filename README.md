@@ -2,4 +2,6 @@
 
 jdk 21
 
-Linguagem uranio
+Teste da linguagem `src/testes`
+
+Analisadores `src/Lexico && src/Sintatico`
