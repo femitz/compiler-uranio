@@ -1,15 +1,14 @@
 // linguagem de programação uranio
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-
 import Lexico.Lexico;
 import Sintatico.Sintatico;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class Main {
-  public static void main(String[] args) throws FileNotFoundException, IOException{
+  public static void main(String[] args) throws IOException{
     System.out.println("\n\n");
 
     String[] fileName = {"test", "testeSoma"};
@@ -23,7 +22,7 @@ public class Main {
     
   }
   
-  public static void runTeste(String file) throws FileNotFoundException, IOException{
+  public static void runTeste(String file) throws IOException{
     Lexico lexico = new Lexico();
     Sintatico sintatico = new Sintatico();
 
