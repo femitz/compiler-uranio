@@ -11,9 +11,9 @@ public class Main {
   public static void main(String[] args) throws IOException{
     System.out.println("\n\n");
 
-    String[] fileName = {"test", "testeSoma"};
+    String[] nomeArquivo = {"test", "testeSoma"};
 
-    runTest(fileName[0]);
+    runTeste(nomeArquivo[0]);
 
     // for (int i = 0; i < fileName.length; i++) {
     //   runTeste(fileName[i]);
@@ -22,7 +22,7 @@ public class Main {
     
   }
   
-  public static void runTest(String file) throws IOException{
+  public static void runTeste(String file) throws IOException{
     Lexico lexico = new Lexico();
     Sintatico sintatico = new Sintatico();
 
