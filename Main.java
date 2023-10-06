@@ -13,7 +13,7 @@ public class Main {
 
     String[] fileName = {"test", "testeSoma"};
 
-    runTeste(fileName[0]);
+    runTest(fileName[0]);
 
     // for (int i = 0; i < fileName.length; i++) {
     //   runTeste(fileName[i]);
@@ -22,7 +22,7 @@ public class Main {
     
   }
   
-  public static void runTeste(String file) throws IOException{
+  public static void runTest(String file) throws IOException{
     Lexico lexico = new Lexico();
     Sintatico sintatico = new Sintatico();
 
