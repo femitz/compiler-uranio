@@ -2,6 +2,6 @@
 
 jdk 21
 
-Teste da linguagem `src/testes`
+Teste da linguagem `test/`
 
 Analisadores `src/Lexico && src/Sintatico`

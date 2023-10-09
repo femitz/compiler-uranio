@@ -3,6 +3,8 @@ int x =  30;
 string teste = "teste";
 float floatTest = 20.20;
 
+int array =[1,2,3,4,5];
+
 if ( x < 29 ) {
     return true;
 } else {

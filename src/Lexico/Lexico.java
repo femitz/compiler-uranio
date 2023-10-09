@@ -59,7 +59,7 @@ public class Lexico {
                     }
                 }
             }
-            //br.close();
+            br.close();
             System.out.println("\nTabela de Símbolos:");
             for (Map.Entry<String, String> entry : tabelaSimbolo.entrySet()) {
                 System.out.println("Identificador: " + entry.getKey() + ", Tipo: " + entry.getValue());
@@ -92,7 +92,8 @@ public class Lexico {
     }
 
     private static boolean ehDelimitador(String token) {
-        return token.equals(",") || token.equals(";") || token.equals("{") || token.equals("}");
+        return token.matches("[\\[\\]{}();,.]");
+        //return token.equals(",") || token.equals(";") || token.equals("{") || token.equals("}");
     }
 
     private static boolean ehIdentificador(String token) {
