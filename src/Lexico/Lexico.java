@@ -39,8 +39,8 @@ public class Lexico {
                         } else if (ehIdentificador(token)) {
                             if (!tabelaSimbolo.containsKey(token)) {
 
-                                String dataType = perguntaTipo(token);
-                                tabelaSimbolo.put(token, dataType);
+                                String tipoDado = perguntaTipo(token);
+                                tabelaSimbolo.put(token, tipoDado);
                             }
                             System.out.println("Identificador: " + token + ", Tipo: " + tabelaSimbolo.get(token));
                         } else if (ehInteiroLiteral(token)) {
