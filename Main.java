@@ -13,27 +13,36 @@ public class Main {
 
     // nomes dos arquivos
     String[] testInicialArquivo = {"test", "testeSoma"};
-    //String[] testSintaxErrArquivo = {};
+
+    String[] testSintaxErrArquivo = {"teste de erroprint","teste de erroprint","teste expo"};
+
+    String[] testSintaxCorrectArquivo = {"teste dowhile","teste for_2","teste for","teste if","teste while"};
 
     // separadores de arquivos por categoria
     class test{
       public String testInicial(int index){
-        String res = "test/"+testInicialArquivo[index]+".ura";
-        return res;
+        return "test/"+testInicialArquivo[index]+".ura";
       }
       
-      // public String testSintaxErr(int index){
-      //   String res = "test/"+testSintaxErrArquivo[index]+".ura";
-      //   return res;
-      // }
-    }
+      public String testSintaxErr(int index){
+        return "test/err/"+testSintaxErrArquivo[index]+".ura";
+      }
 
+      public String testSintaxCorrect(int index){
+        return "test/acert/"+testSintaxCorrectArquivo[index]+".ura";
+      }
+    }
 
     // teste final
 
     test test = new test();
 
     runTeste(test.testInicial(0));    
+
+
+    // for (int i = 0; i < testInicialArquivo.length; i++) runTeste(test.testInicial(i));
+    // for (int i = 0; i < testSintaxCorrectArquivo.length; i++) runTeste(test.testSintaxCorrect(i));
+    // for (int i = 0; i < testSintaxErrArquivo.length; i++) runTeste(test.testSintaxErr(i));
 
   }
   
@@ -54,6 +63,7 @@ public class Main {
     BufferedReader br1 = new BufferedReader(new FileReader(file));
     System.out.println("\nLexico:\n");
     lexico.runLexico(br1); // aqui em algummomento joga fora o arquivo por isso o br2
+    br1.close();
     
     BufferedReader br2 = new BufferedReader(new FileReader(file));
     System.out.println("\nSintatico:\n");

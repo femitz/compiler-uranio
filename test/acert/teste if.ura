@@ -1,0 +1,8 @@
+double y=0;
+print("DIGITE Y: ");
+
+if(y<45.67){
+  return true;
+} else {
+  return false;
+}

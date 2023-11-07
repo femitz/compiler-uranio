@@ -1,0 +1,7 @@
+int f=50;
+int x=0;
+
+do{
+  print("DIGITE X: ");
+  f+x=g;
+}while(g!=68);

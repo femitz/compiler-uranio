@@ -1,0 +1,6 @@
+int f = 50;
+int x = 0;
+
+do {
+  f + x=g;
+} while (g == 68;

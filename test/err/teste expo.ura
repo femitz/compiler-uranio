@@ -1,0 +1,7 @@
+int x=0;
+int y=0;
+
+print("digite a base: ", x);
+print("digite o expoente: ", y);
+
+print("o resultado e: " x**y);

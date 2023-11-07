@@ -1,0 +1,4 @@
+int x=0;
+int y=0;
+print("digite");
+print("o resultado e ", x/y);

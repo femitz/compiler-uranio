@@ -1,0 +1,8 @@
+x= 3-y;
+double y=0;
+
+print("digite y: ");
+
+for(y=0; y<=x; y++){
+  print(" ", x);
+} 

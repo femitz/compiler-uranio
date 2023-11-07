@@ -1,0 +1,6 @@
+int x=0;
+print("digite o valor de x: ");
+
+while(x<345){
+  print("O numero e menor do que o limite");
+}
