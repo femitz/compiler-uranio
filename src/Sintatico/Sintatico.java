@@ -72,8 +72,7 @@ class AnalisadorSintatico {
 
 class AnalisadorVariavel{
     public static void varAnalise(String i){
-        String entrada = "nome \"Exemplo\" = true;";
-
+        String entrada = i;
         String padrao = "^(\\w+)\\s+\"([^\"]*)\"\\s*=\\s*(true|false|\\d+(?:\\.\\d+)?)\\s*;$";
 
         Pattern pattern = Pattern.compile(padrao);
@@ -120,36 +119,39 @@ class AnalisadorVariavel{
                 + "case 2: nome \"Caso2\" = false; break; "
                 + "default: nome \"Padrao\" = 42; }";
 
-        String padraoCodigo = "^(if\\s*\\(([^)]+)\\)\\s*\\{([^}]*)\\})|"
-                + "^(for\\s*\\(([^;]+);([^;]+);([^)]+)\\)\\s*\\{([^}]*)\\})|"
-                + "^(while\\s*\\(([^)]+)\\)\\s*\\{([^}]*)\\})|"
-                + "^(do\\s*\\{([^}]*)\\}\\s*while\\s*\\(([^)]+)\\);)|"
-                + "^(switch\\s*\\(([^)]+)\\)\\s*\\{([^}]*)\\})$|"
-                + "^(case\\s*(\\d+)\\s*:\\s*(.+?)\\s*break;)|"
-                + "^(default\\s*:\\s*(.+?)\\s*break;)$";
+        String padraoCodigo = "^((if\\s*\\(([^)]+)\\)\\s*\\{([^}]*)\\})|"
+                + "(for\\s*\\(([^;]+);([^;]+);([^)]+)\\)\\s*\\{([^}]*)\\})|"
+                + "(while\\s*\\(([^)]+)\\)\\s*\\{([^}]*)\\})|"
+                + "(do\\s*\\{([^}]*)\\}\\s*while\\s*\\(([^)]+)\\);)|"
+                + "(switch\\s*\\(([^)]+)\\)\\s*\\{([^}]*)\\}))$|"
+                + "(case\\s*(\\d+)\\s*:\\s*(.+?)\\s*break;)|"
+                + "(default\\s*:\\s*(.+?)\\s*break;)$";
 
         Pattern patternCodigo = Pattern.compile(padraoCodigo, Pattern.MULTILINE);
         Matcher matcherCodigo = patternCodigo.matcher(entradaCodigo);
 
         boolean dentroDoLoop = false;
+        boolean dentroDoSwitch = false;
 
         while (matcherCodigo.find()) {
             if (matcherCodigo.group(1) != null) {
-
-            } else if (matcherCodigo.group(4) != null) {
+                dentroDoLoop = false;
+                dentroDoSwitch = true;
+            } else if (matcherCodigo.group(4) != null || matcherCodigo.group(9) != null
+                    || matcherCodigo.group(12) != null) {
                 dentroDoLoop = true;
-
-            } else if (matcherCodigo.group(9) != null) {
-                dentroDoLoop = true;
-
-            } else if (matcherCodigo.group(12) != null) {
-                dentroDoLoop = true;
-
+                dentroDoSwitch = false;
             } else if (matcherCodigo.group(21) != null) {
-                if (dentroDoLoop && matcherCodigo.group(22) != null && matcherCodigo.group(22).contains("break")) {
-                    System.out.println("Instrução 'break' encontrada.");
+                dentroDoLoop = false;
+                dentroDoSwitch = false;
+            } else if (matcherCodigo.group(22) != null) {
+                if (dentroDoLoop) {
+                    if (dentroDoSwitch && matcherCodigo.group(22).contains("break;")) {
+                        System.out.println("Instrução 'break' encontrada dentro do bloco switch.");
+                    } else if (matcherCodigo.group(22).contains("break;")) {
+                        System.out.println("Instrução 'break' encontrada fora de um bloco switch.");
+                    }
                 }
-
             }
         }
     }
@@ -157,30 +159,21 @@ class AnalisadorVariavel{
 
 public class Sintatico {
     public static void main(String[] args) {
-        System.out.println("\n\n");
-        List<String> tokens = new ArrayList<>();
-        // Preencha a lista de tokens com os tokens da sua entrada
-        // Exemplo: tokens.add("2"); tokens.add("+"); tokens.add("3"); ...
+        // System.out.println("\n\n");
+        // List<String> tokens = new ArrayList<>();
 
-        // tokens.add("2");
-        // tokens.add("+");
-        // tokens.add("3");
-        // tokens.add("*");
-        // tokens.add("(");
-        // tokens.add("4");
-        // tokens.add("+");
-        // tokens.add("5");
-        // tokens.add(")");
-
-        String scan = "1+2+3-4/5*6+(4+5)";
-        for (int i = 0; i < scan.length(); i++){
-            char c = scan.charAt(i);
-            tokens.add(Character.toString(c));
-        }
+        // String scan = "1+2+3-4/5*6+(4+5)";
+        // for (int i = 0; i < scan.length(); i++){
+        //     char c = scan.charAt(i);
+        //     tokens.add(Character.toString(c));
+        // }
         
 
-        AnalisadorSintatico analisador = new AnalisadorSintatico(tokens);
-        analisador.analisar();
+        // AnalisadorSintatico analisador = new AnalisadorSintatico(tokens);
+        // analisador.analisar();
+        AnalisadorVariavel variavel = new AnalisadorVariavel();
+        //variavel.varAnalise("int x = 0 ;");
+        validVariables("int x=0;");
     }
 
     public void runSintatico(String line){
@@ -193,6 +186,40 @@ public class Sintatico {
 
         AnalisadorSintatico analisador = new AnalisadorSintatico(tokens);
         analisador.analisar();
+    }
+
+    public static void validVariables(String i ){
+        String string = i;
+        
+        // se posição 0 for um toke ta certo
+        // posição 1 n importa pode ser qualquer coisas mas pode ser feito um padrão em regex
+        // posição 2 é exclusiva do = 
+        // posição 3 deve ser o valor sendo string tem sua regra (no caso se for dividir com split da pra fazer um for até juntar tudo)
+        // posição final tem q ser um ;
+        
+
+        if (string.contains("=")) {
+            String[] token = string.split("="); // dividir toda palavra
+            String[] parte1 = token[0].split(" ");
+
+            switch (parte1[0]) {
+                case "int": 
+                        System.out.println("typagem ok");
+                        if (token[1].matches("^[0-9\\+\\-\\*\\/\\.\\s]*;$")) {
+                            System.out.println("expression ok");
+                        } else {
+                            System.out.println("expression not ok");
+                        }
+                    break;
+                case "string": System.out.println("typagem ok");
+                    break;
+                default:
+                    break;
+            }
+        } else {
+            System.out.println("não é variavel");            
+        }
+
     }
 
 }
