@@ -11,39 +11,28 @@ public class Main {
   public static void main(String[] args) throws IOException{
     System.out.println("\n\n");
 
-    // nomes dos arquivos
-    String[] testInicialArquivo = {"test", "testeSoma"};
-
-    String[] testSintaxErrArquivo = {"teste de erroprint","teste de erroprint","teste expo"};
-
-    String[] testSintaxCorrectArquivo = {"teste dowhile","teste for_2","teste for","teste if","teste while"};
-
-    // separadores de arquivos por categoria
-    class test{
-      public String testInicial(int index){
-        return "test/"+testInicialArquivo[index]+".ura";
-      }
-      
-      public String testSintaxErr(int index){
-        return "test/err/"+testSintaxErrArquivo[index]+".ura";
-      }
-
-      public String testSintaxCorrect(int index){
-        return "test/acert/"+testSintaxCorrectArquivo[index]+".ura";
-      }
-    }
-
-    // teste final
-
-    test test = new test();
-
-    runTeste(test.testInicial(0));    
+    runTeste(testeInicial(0));
 
 
     // for (int i = 0; i < testInicialArquivo.length; i++) runTeste(test.testInicial(i));
     // for (int i = 0; i < testSintaxCorrectArquivo.length; i++) runTeste(test.testSintaxCorrect(i));
     // for (int i = 0; i < testSintaxErrArquivo.length; i++) runTeste(test.testSintaxErr(i));
 
+  }
+
+  public static String testeInicial(int i) {
+    String[] testInicialArquivo = {"test", "testeSoma"};
+    return "test/"+testInicialArquivo[i]+".ura";
+  }
+
+  public static String testeSintaxErr(int i) {
+    String[] testSintaxErrArquivo = {"teste de erroprint","teste de erroprint","teste expo"};
+    return "test/err/"+testSintaxErrArquivo[i]+".ura";
+  }
+
+  public static String testeSintaxCorreto(int i){
+    String[] testSintaxCorrectArquivo = {"teste dowhile","teste for_2","teste for","teste if","teste while"};
+    return "test/acert/"+testSintaxCorrectArquivo[i]+".ura";
   }
   
   public static void runTeste(String file) throws IOException{
