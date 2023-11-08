@@ -1,4 +1,4 @@
-package Lexico;
+package src.Lexico;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -9,12 +9,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Lexico {
-    public static void main(String[] args) throws FileNotFoundException {
-        // String[] fileName = {"test", "testeSoma"};
-        // BufferedReader br = new BufferedReader(new FileReader("src/testes/"+fileName[0]+".ura"));
-
-        // runLexico(br);
-    }
 
     public void runLexico(BufferedReader br){
         try {

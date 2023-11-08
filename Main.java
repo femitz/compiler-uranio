@@ -1,7 +1,7 @@
 // linguagem de programação uranio
 
-import Lexico.Lexico;
-import Sintatico.Sintatico;
+import src.Lexico.*;
+import src.Sintatico.*;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
