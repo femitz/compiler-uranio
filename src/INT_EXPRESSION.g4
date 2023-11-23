@@ -6,5 +6,5 @@ prog:   prog ('*'|'/') prog
     |   '(' prog ')'
     ;
 
-NEWLINE : [ \r\n]+ ;
+NEWLINE : [\r\n]+ ;
 INT     : [0-9]+ ;
