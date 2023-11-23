@@ -2,25 +2,25 @@
 nome: Uranio
 terminação com file.ura
 
-## Variaveis
+## Variáveis
 
-```c#
-string hello = "hello wolrd"
+```csharp
+string hello = "hello wolrd";
 
-int numero_inteiro = 1
+int numero_inteiro = 1;
 
-double numero_double = 10.20
+double numero_double = 10.20;
 
-float numero_float = 20.40
+float numero_float = 20.40;
 
-boolean verifica = false
+boolean verifica = false;
 
-char character = "!"
+char character = "!";
 ```
 
-## Estrutura de seleção
+## ****Estrutura de seleção****
 
-```c#
+```csharp
 if (10 > 0) {
 	// to do
 } else {
@@ -30,11 +30,11 @@ if (10 > 0) {
 
 ## Estrutura de repetição
 
-```c#
+```csharp
 // Do-While-Loop
 do{
 	// to do
-} while ( 10 > 0)
+} while ( 10 > 0);
 
 // While-Loop
 while( 10 > 0 ){
@@ -51,7 +51,7 @@ for(i = 0; i < 10; i++){
 
 ## Condições
 
-```c#
+```csharp
 // Atribuição
 string hello = "hello world"
 
@@ -77,25 +77,35 @@ hello != "hello"
 
 ## Operações Matematicas
 
-```c#
+```csharp
 // Soma
-int soma = 1 + 1 
+int soma = 1 + 1;
 // valor esperado 2
 
 // Subtração
-int subtracao = 1 - 1 
+int subtracao = 1 - 1;
 // valor esperado 0
 
 // Divisão 
-int divisao = 4 / 2
+int divisao = 4 / 2;
 // valor esperado 2
 
 // Multiplicação 
-int mult = 2 * 2
+int mult = 2 * 2;
 // valor esperado 4
 
 // Exponeciação
-int expo = 2 ** 3
+int expo = 2 ** 3;
 // valor esperado 2 * 2 * 2 = 8
 
+```
+
+## Delimitadores
+
+Utilizando os delimitadores parênteses e chaves, se eles são abertos eles terão que ser fechados.
+
+```csharp
+(exemplo)
+{exemplo}
+;
 ```

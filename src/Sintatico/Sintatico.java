@@ -59,10 +59,11 @@ public class Sintatico {
                         System.out.println("expression not ok");
                     }
                     break;
-                case "str":
+                case "string":
                     System.out.println("typagem ok");
                     break;
                 default:
+                    System.out.println("typagem errada");
                     break;
             }
         } else {
