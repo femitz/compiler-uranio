@@ -1,0 +1,1 @@
+SET CLASSPATH=".;lib/antlr-4.13.1-complete.jar;%CLASSPATH%" 
