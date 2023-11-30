@@ -1,13 +1,19 @@
 grammar TesteVariavel;
 
-import INT_EXPRESSION;
-
 prog: declaration+;
 
 declaration: TYPE ID '=' value ';';
 
-value:   STRING | CHAR | BOOLEAN
-        | INT_EXPRESSION;
+value:   STRING | CHAR | BOOLEAN | expr+;
+
+expr: expr ('*'|'/') expr
+  |   expr ('+'|'-') expr
+  |   INT
+  |   '(' expr ')'
+  ;
+
+NEWLINE : [\r\n]+ ;
+INT     : [0-9]+ ;
 
 TYPE:  'string'|'char'|'boolean'|'int';
 ID: [a-zA-Z][a-zA-Z0-9_-]*;
